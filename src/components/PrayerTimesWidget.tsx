@@ -26,7 +26,7 @@ export function PrayerTimesWidget() {
   const next = data ? getNextPrayer(data.timings) : null;
 
   return (
-    <div className="rounded-3xl border border-gold-500/20 bg-teal-950 p-6 sm:p-8 shadow-xl shadow-teal-950/20">
+    <div className="rounded-3xl border-2 border-gold-500/70 bg-gradient-to-br from-teal-800 to-teal-900 p-6 sm:p-8 shadow-2xl shadow-teal-950/50 ring-1 ring-white/5">
       <div className="flex flex-wrap items-baseline justify-between gap-2">
         <h3 className="font-display text-xl font-bold text-cream-50">
           Today&apos;s Prayer Times
@@ -69,8 +69,8 @@ export function PrayerTimesWidget() {
                   key={key}
                   className={`rounded-xl px-2 py-3 text-center ${
                     isNext
-                      ? "bg-gold-500 text-teal-950"
-                      : "bg-cream-50/5 text-cream-50"
+                      ? "bg-gold-500 text-teal-950 shadow-lg shadow-gold-500/30"
+                      : "bg-teal-950/50 text-cream-50 ring-1 ring-white/5"
                   }`}
                 >
                   <p
