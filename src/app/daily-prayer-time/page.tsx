@@ -21,7 +21,7 @@ export default function DailyPrayerTimePage() {
         <PrayerTimesWidget />
       </Section>
       <Section className="pt-0">
-        <h2 className="mb-6 font-display text-2xl font-bold text-teal-900">
+        <h2 data-reveal className="mb-6 font-display text-2xl font-bold text-teal-900">
           Monthly Calendar
         </h2>
         <PrayerTimesMonthTable />

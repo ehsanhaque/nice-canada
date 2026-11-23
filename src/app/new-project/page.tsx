@@ -46,6 +46,7 @@ export default function NewProjectPage() {
           {milestones.map((m, i) => (
             <div
               key={m.title}
+              data-reveal
               className="rounded-2xl border border-teal-900/10 bg-white p-6"
             >
               <span className="grid h-9 w-9 place-items-center rounded-full bg-teal-900 font-display font-bold text-cream-50">
@@ -62,7 +63,7 @@ export default function NewProjectPage() {
 
       <Section className="bg-teal-900">
         <div className="text-center">
-          <h2 className="font-display text-3xl font-bold text-cream-50 text-balance">
+          <h2 data-reveal className="font-display text-3xl font-bold text-cream-50 text-balance">
             Every contribution brings us closer
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-cream-100/80">

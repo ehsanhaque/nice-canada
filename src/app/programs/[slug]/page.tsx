@@ -71,13 +71,13 @@ export default async function ProgramPage({
             </div>
           </div>
 
-          <aside className="rounded-2xl border border-teal-900/10 bg-cream-100 p-6">
+          <aside data-reveal className="rounded-2xl border border-teal-900/10 bg-cream-100 p-6">
             <h3 className="font-display text-lg font-bold text-teal-900">
               Related programs
             </h3>
             <ul className="mt-4 space-y-3">
               {related.map((p) => (
-                <li key={p.slug}>
+                <li key={p.slug} data-reveal>
                   <Link
                     href={`/programs/${p.slug}/`}
                     className="group flex items-center justify-between gap-2 text-sm font-medium text-ink-700 hover:text-teal-800"

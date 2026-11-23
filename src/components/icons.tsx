@@ -71,3 +71,64 @@ export function IconHeart(props: React.SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+
+export function IconMosque(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth={2} strokeLinejoin="round" strokeLinecap="round" {...props}>
+      <path d="M24 3v4" />
+      <path d="M24 7c-1.2 2.6-6 4.6-9 8.2-2.4 2.9-3 6-3 8.8h24c0-2.8-.6-5.9-3-8.8C30 11.6 25.2 9.6 24 7Z" />
+      <path d="M9 24h30v4H9z" />
+      <path d="M11 28v16M37 28v16M6 44h36" />
+      <path d="M18 44v-7a6 6 0 0 1 12 0v7" />
+    </svg>
+  );
+}
+
+export function IconBook(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth={2} strokeLinejoin="round" {...props}>
+      <path d="M24 12c-4-3-10-4-17-3v28c7-1 13 0 17 3 4-3 10-4 17-3V9c-7-1-13 0-17 3Z" />
+      <path d="M24 12v28" />
+      <path d="M4 13v28c8-1 14 0 20 3 6-3 12-4 20-3V13" />
+    </svg>
+  );
+}
+
+export function IconPeople(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 48 48" fill="currentColor" {...props}>
+      <circle cx="24" cy="13" r="6" />
+      <circle cx="11" cy="17" r="4.5" />
+      <circle cx="37" cy="17" r="4.5" />
+      <path d="M13 36c0-6.6 4.9-12 11-12s11 5.4 11 12v2H13v-2Z" />
+      <path d="M10.6 24.5A11.8 11.8 0 0 0 8.6 31v5H2v-3c0-4.6 3.6-8.4 8.6-8.5ZM37.4 24.5a11.8 11.8 0 0 1 2 6.5v5H46v-3c0-4.6-3.6-8.4-8.6-8.5Z" />
+    </svg>
+  );
+}
+
+export function IconCalendar(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 48 48" fill="currentColor" {...props}>
+      <path d="M15 4a2 2 0 0 1 2 2v3h14V6a2 2 0 1 1 4 0v3h4a5 5 0 0 1 5 5v4H4v-4a5 5 0 0 1 5-5h4V6a2 2 0 0 1 2-2Z" />
+      <path fillRule="evenodd" d="M4 21h40v18a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V21Zm8 5v5h6v-5h-6Zm9 0v5h6v-5h-6Zm9 0v5h6v-5h-6Zm-18 8v5h6v-5h-6Zm9 0v5h6v-5h-6Z" />
+    </svg>
+  );
+}
+
+export function IconClock(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" {...props}>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 7v5l3 2" />
+    </svg>
+  );
+}
+
+export function IconHandHeart(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 48 48" fill="currentColor" {...props}>
+      <path d="M26 21s-9-5.6-9-11.2C17 6.6 19.3 4 22.3 4c1.6 0 2.9.8 3.7 2 .8-1.2 2.1-2 3.7-2 3 0 5.3 2.6 5.3 5.8C35 15.4 26 21 26 21Z" />
+      <path d="M4 28h6v16H4zM13 29.5l6.4-2.2a6 6 0 0 1 4.3.1l6.4 2.6a2.6 2.6 0 0 1-1.6 4.9l-6.3-1.3a1 1 0 0 0-.4 2l6.4 1.4a5 5 0 0 0 3.4-.5l7.6-4.2a2.8 2.8 0 0 1 3 4.6L31.6 43.3a7 7 0 0 1-5.4 1.2L13 42V29.5Z" />
+    </svg>
+  );
+}

@@ -21,7 +21,7 @@ export default function DonationPage() {
 
       <Section>
         <div className="grid gap-6 lg:grid-cols-3">
-          <div className="flex flex-col rounded-2xl border-2 border-teal-800 bg-white p-7 shadow-sm">
+          <div data-reveal className="flex flex-col rounded-2xl border-2 border-teal-800 bg-white p-7 shadow-sm">
             <span className="w-fit rounded-full bg-teal-800 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-cream-50">
               Preferred Method
             </span>
@@ -46,7 +46,7 @@ export default function DonationPage() {
             </div>
           </div>
 
-          <div className="flex flex-col rounded-2xl border border-teal-900/10 bg-white p-7 shadow-sm">
+          <div data-reveal className="flex flex-col rounded-2xl border border-teal-900/10 bg-white p-7 shadow-sm">
             <span className="w-fit rounded-full bg-gold-500/15 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-gold-700">
               Option 2
             </span>
@@ -63,7 +63,7 @@ export default function DonationPage() {
             </div>
           </div>
 
-          <div className="flex flex-col rounded-2xl border border-teal-900/10 bg-white p-7 shadow-sm">
+          <div data-reveal className="flex flex-col rounded-2xl border border-teal-900/10 bg-white p-7 shadow-sm">
             <span className="w-fit rounded-full bg-teal-900/5 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-teal-700">
               Option 3
             </span>
@@ -88,7 +88,7 @@ export default function DonationPage() {
 
       <Section className="bg-teal-900">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-display text-2xl font-bold text-cream-50">
+          <h2 data-reveal className="font-display text-2xl font-bold text-cream-50">
             Where your donation goes
           </h2>
           <div className="mt-8 grid gap-4 text-left sm:grid-cols-2">
@@ -102,6 +102,7 @@ export default function DonationPage() {
             ].map((item) => (
               <div
                 key={item}
+                data-reveal
                 className="flex items-start gap-3 rounded-xl bg-cream-50/5 px-5 py-4"
               >
                 <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-gold-400" />

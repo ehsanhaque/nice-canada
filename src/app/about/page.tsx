@@ -49,7 +49,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <aside className="rounded-2xl border border-teal-900/10 bg-cream-100 p-6 h-fit">
+          <aside data-reveal className="rounded-2xl border border-teal-900/10 bg-cream-100 p-6 h-fit">
             <h3 className="font-display text-lg font-bold text-teal-900">
               At a glance
             </h3>
@@ -100,6 +100,7 @@ export default function AboutPage() {
           {objectives.map((objective, i) => (
             <div
               key={objective}
+              data-reveal
               className="flex items-start gap-4 rounded-2xl bg-cream-50/5 p-6"
             >
               <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-gold-500 font-display font-bold text-teal-950">
@@ -128,6 +129,7 @@ export default function AboutPage() {
           ].map((item) => (
             <li
               key={item}
+              data-reveal
               className="rounded-xl border border-teal-900/10 bg-white px-5 py-4 text-sm font-medium text-ink-700"
             >
               {item}

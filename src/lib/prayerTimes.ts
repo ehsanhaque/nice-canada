@@ -126,3 +126,10 @@ export function getNextPrayer(
   }
   return null;
 }
+
+// "17:05" -> "5:05 PM"
+export function formatTime12h(time: string): string {
+  const [h, m] = time.split(":").map(Number);
+  const suffix = h >= 12 ? "PM" : "AM";
+  return `${h % 12 || 12}:${String(m).padStart(2, "0")} ${suffix}`;
+}

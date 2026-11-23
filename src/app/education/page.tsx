@@ -28,6 +28,7 @@ export default function EducationPage() {
           {educationClasses.map((cls) => (
             <div
               key={cls.slug}
+              data-reveal
               className="rounded-2xl border border-teal-900/10 bg-white p-7 shadow-sm"
             >
               <h3 className="font-display text-xl font-bold text-teal-900">
@@ -42,7 +43,7 @@ export default function EducationPage() {
       <Section className="bg-teal-900">
         <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
           <div>
-            <h2 className="font-display text-3xl font-bold text-cream-50 text-balance">
+            <h2 data-reveal className="font-display text-3xl font-bold text-cream-50 text-balance">
               Ready to enroll your child?
             </h2>
             <p className="mt-4 text-cream-100/80">

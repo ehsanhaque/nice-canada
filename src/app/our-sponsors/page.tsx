@@ -27,6 +27,7 @@ export default function OurSponsorsPage() {
           {Array.from({ length: 8 }).map((_, i) => (
             <div
               key={i}
+              data-reveal
               className="flex aspect-video items-center justify-center rounded-2xl border border-dashed border-teal-900/20 bg-cream-100 text-sm font-medium text-ink-500"
             >
               Sponsor Logo
@@ -37,7 +38,7 @@ export default function OurSponsorsPage() {
 
       <Section className="bg-teal-900">
         <div className="text-center">
-          <h2 className="font-display text-2xl font-bold text-cream-50">
+          <h2 data-reveal className="font-display text-2xl font-bold text-cream-50">
             Become a sponsor
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-cream-100/80">

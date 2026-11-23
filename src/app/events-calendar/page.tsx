@@ -33,6 +33,7 @@ export default function EventsCalendarPage() {
           {weeklySchedule.map((row, i) => (
             <div
               key={row.event}
+              data-reveal
               className={`flex flex-col justify-between gap-1 px-6 py-4 sm:flex-row sm:items-center ${
                 i % 2 === 0 ? "bg-white" : "bg-cream-100"
               }`}
@@ -46,7 +47,7 @@ export default function EventsCalendarPage() {
 
       <Section className="bg-teal-900">
         <div className="text-center">
-          <h2 className="font-display text-3xl font-bold text-cream-50 text-balance">
+          <h2 data-reveal className="font-display text-3xl font-bold text-cream-50 text-balance">
             Seasonal programs & special events
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-cream-100/80">

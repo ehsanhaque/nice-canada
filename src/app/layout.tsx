@@ -3,6 +3,7 @@ import { Playfair_Display, Inter, Amiri } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { ScrollEffects } from "@/components/ScrollEffects";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -36,9 +37,21 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${playfair.variable} ${inter.variable} ${amiri.variable} h-full antialiased`}
     >
+      <head>
+        {/* Runs before first paint so scroll-reveal content starts hidden
+            (no flash) — skipped entirely for reduced-motion visitors. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('motion')",
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col bg-cream-50 text-ink-900">
+        <ScrollEffects />
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />

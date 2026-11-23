@@ -6,6 +6,7 @@ export function ProgramCard({ program }: { program: Program }) {
   return (
     <Link
       href={`/programs/${program.slug}/`}
+      data-reveal
       className="group flex flex-col rounded-2xl border border-teal-900/10 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg hover:border-gold-500/40"
     >
       <span className="w-fit rounded-full bg-teal-900/5 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-teal-700">

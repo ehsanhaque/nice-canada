@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Container } from "./Container";
 import { Logo } from "./Logo";
 import { mainNav, site } from "@/lib/site";
@@ -13,9 +13,27 @@ const primaryNav = mainNav.filter((item) => item.href !== "/donation/");
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // The header floats transparently over each page's hero image until the
+  // visitor scrolls (or opens the mobile menu).
+  const overlay = !scrolled && !open;
 
   return (
-    <header className="sticky top-0 z-50 border-b border-teal-900/10 bg-cream-50/90 backdrop-blur">
+    <header
+      className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${
+        overlay
+          ? "border-transparent bg-transparent"
+          : "border-teal-900/10 bg-cream-50/90 backdrop-blur"
+      }`}
+    >
       <Container className="flex h-20 items-center justify-between gap-4">
         <Link
           href="/"
@@ -24,10 +42,14 @@ export function SiteHeader() {
         >
           <Logo className="h-11 w-auto shrink-0" />
           <span className="leading-tight">
-            <span className="block font-display text-xl font-bold text-teal-900">
+            <span
+              className={`block font-display text-xl font-bold ${overlay ? "text-cream-50" : "text-teal-900"}`}
+            >
               {site.name}
             </span>
-            <span className="block whitespace-nowrap text-xs font-medium text-ink-500">
+            <span
+              className={`block whitespace-nowrap text-xs font-medium ${overlay ? "text-cream-100/80" : "text-ink-500"}`}
+            >
               {site.fullName}
             </span>
           </span>
@@ -45,8 +67,12 @@ export function SiteHeader() {
                 href={item.href}
                 className={`whitespace-nowrap rounded-full px-3.5 py-2 text-sm font-medium transition ${
                   active
-                    ? "bg-teal-800 text-cream-50"
-                    : "text-ink-700 hover:bg-teal-900/5 hover:text-teal-800"
+                    ? overlay
+                      ? "bg-white/15 text-cream-50"
+                      : "bg-teal-800 text-cream-50"
+                    : overlay
+                      ? "text-cream-50/90 hover:bg-white/10 hover:text-cream-50"
+                      : "text-ink-700 hover:bg-teal-900/5 hover:text-teal-800"
                 }`}
               >
                 {item.label}
@@ -66,7 +92,7 @@ export function SiteHeader() {
 
         <button
           type="button"
-          className="grid h-10 w-10 shrink-0 place-items-center rounded-full text-teal-900 xl:hidden"
+          className={`grid h-10 w-10 shrink-0 place-items-center rounded-full xl:hidden ${overlay ? "text-cream-50" : "text-teal-900"}`}
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
           aria-expanded={open}

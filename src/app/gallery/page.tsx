@@ -30,7 +30,7 @@ export default function GalleryPage() {
 
       <Section className="bg-teal-900">
         <div className="text-center">
-          <h2 className="font-display text-2xl font-bold text-cream-50">
+          <h2 data-reveal className="font-display text-2xl font-bold text-cream-50">
             More photos & videos
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-cream-100/80">
