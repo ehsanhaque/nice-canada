@@ -1,7 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 import { PageHero } from "@/components/PageHero";
 import { Section, SectionHeading } from "@/components/Section";
 import { educationClasses, site } from "@/lib/site";
+import { asset } from "@/lib/asset";
 import { IconArrowRight } from "@/components/icons";
 
 export const metadata = {
@@ -26,16 +28,43 @@ export default function EducationPage() {
         />
         <div className="mt-10 grid gap-6 sm:grid-cols-2">
           {educationClasses.map((cls) => (
-            <div
+            <Link
               key={cls.slug}
+              href={`/education/${cls.slug}/`}
               data-reveal
-              className="rounded-2xl border border-teal-900/10 bg-white p-7 shadow-sm"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-teal-900/10 bg-white shadow-sm transition hover:-translate-y-1 hover:border-gold-500/40 hover:shadow-lg"
             >
-              <h3 className="font-display text-xl font-bold text-teal-900">
-                {cls.title}
-              </h3>
-              <p className="mt-3 text-ink-500">{cls.description}</p>
-            </div>
+              <div className="relative aspect-[16/7] overflow-hidden bg-teal-900/5">
+                <Image
+                  src={asset(cls.image)}
+                  alt=""
+                  fill
+                  unoptimized
+                  sizes="(min-width: 640px) 50vw, 100vw"
+                  className="object-cover transition duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="flex flex-1 flex-col p-7">
+                <div className="flex flex-wrap gap-2">
+                  {cls.facts.map((fact) => (
+                    <span
+                      key={fact}
+                      className="rounded-full bg-teal-900/5 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-teal-700"
+                    >
+                      {fact}
+                    </span>
+                  ))}
+                </div>
+                <h3 className="mt-4 font-display text-xl font-bold text-teal-900">
+                  {cls.title}
+                </h3>
+                <p className="mt-2 flex-1 text-ink-500">{cls.description}</p>
+                <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-gold-600 group-hover:text-gold-700">
+                  View class details
+                  <IconArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
+                </span>
+              </div>
+            </Link>
           ))}
         </div>
       </Section>
