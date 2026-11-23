@@ -1,2 +1,2 @@
-:HL["/nice-canada/_next/static/chunks/44-g8a90paw5c.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"6fkwr-teNEB_fJKEkrVMe"}
+:HL["/nice-canada/_next/static/chunks/42e3pxsfzg3_1.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"Zmr74QugWyQgZJ1_V-3wf"}
