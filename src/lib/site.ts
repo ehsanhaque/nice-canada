@@ -10,8 +10,11 @@ export const site = {
   youtubeUrl: "https://www.youtube.com/channel/UCkcusypv6MpwLE50a7KA4QA",
   whatsappUrl: "https://chat.whatsapp.com/Cc7ffQS3ukfClBxmqxxOeY",
   paypalHostedButtonId: "59NAY5NZS5BW8",
-  padFormUrl:
-    "https://www.nice-canada.com/wp-content/uploads/2022/01/NICE-PAD-Form-2020.docx",
+  padFormUrl: "/forms/nice-pad-form.docx",
+  // From NICE's own donation flyer (old site, March 2024).
+  charityRegistration: "771105699RR0001",
+  phone: "647-573-6655",
+  address: "423 Wanless Drive, Unit 107, Brampton, ON L7A 0N9",
   prayerCoordinates: {
     latitude: 43.7315,
     longitude: -79.7624,
@@ -20,111 +23,9 @@ export const site = {
   },
 };
 
-export const mainNav = [
-  { label: "Home", href: "/" },
-  { label: "About Us", href: "/about/" },
-  { label: "Education", href: "/education/" },
-  { label: "Programs", href: "/programs-services/" },
-  { label: "Prayer Times", href: "/daily-prayer-time/" },
-  { label: "Events", href: "/events-calendar/" },
-  { label: "Gallery", href: "/gallery/" },
-  { label: "Sponsors", href: "/our-sponsors/" },
-  { label: "Donate", href: "/donation/" },
-];
+import { programs } from "./programs";
 
-export type Program = {
-  slug: string;
-  title: string;
-  category: "Youth" | "Community" | "Outreach";
-  summary: string;
-};
-
-export const programs: Program[] = [
-  {
-    slug: "boot-camp-for-youths-and-family",
-    title: "Boot Camp for Youths & Family",
-    category: "Youth",
-    summary:
-      "A structured program building discipline, brotherhood, and Islamic character in our youth alongside their families.",
-  },
-  {
-    slug: "winter-break-program",
-    title: "Winter Break Program",
-    category: "Youth",
-    summary:
-      "Keeping youth engaged and connected to the masjid during the winter school break with activities and learning.",
-  },
-  {
-    slug: "summer-break-program",
-    title: "Summer Break Program",
-    category: "Youth",
-    summary:
-      "A summer of Qur'an, sports, and community building designed to keep our children active and grounded in faith.",
-  },
-  {
-    slug: "ramadan-program",
-    title: "Ramadan Program",
-    category: "Youth",
-    summary:
-      "Special taraweeh, iftars, and youth-focused Ramadan programming that brings the whole family together.",
-  },
-  {
-    slug: "umrah-hajj-package",
-    title: "Umrah & Hajj Package",
-    category: "Community",
-    summary:
-      "Guidance and group packages to help members of our community fulfill the journey of Umrah and Hajj.",
-  },
-  {
-    slug: "5-daily-prayers",
-    title: "5 Daily Prayers",
-    category: "Community",
-    summary:
-      "Congregational prayer five times a day, every day — the heartbeat of our masjid community.",
-  },
-  {
-    slug: "jumah-prayer",
-    title: "Jumu'ah Prayer",
-    category: "Community",
-    summary:
-      "Weekly Friday congregational prayer and khutbah, open to the entire community.",
-  },
-  {
-    slug: "funeral-program",
-    title: "Funeral Program",
-    category: "Community",
-    summary:
-      "Ghusl, funeral prayer, and burial support and guidance for families during times of loss.",
-  },
-  {
-    slug: "family-night-every-friday",
-    title: "Family Night — Every Friday",
-    category: "Community",
-    summary:
-      "A weekly evening of food, fellowship, and reflection for families to connect after Jumu'ah.",
-  },
-  {
-    slug: "sisters-halaqa",
-    title: "Sisters Halaqa",
-    category: "Community",
-    summary:
-      "A dedicated circle of learning and sisterhood for the women of our community.",
-  },
-  {
-    slug: "interfaith-dialogue-activities",
-    title: "Interfaith Dialogue & Activities",
-    category: "Community",
-    summary:
-      "Building bridges and mutual understanding with our neighbours of all faiths across Brampton.",
-  },
-  {
-    slug: "help-the-poor-locally-and-abroad",
-    title: "Help the Poor — Locally & Abroad",
-    category: "Outreach",
-    summary:
-      "Zakat, sadaqah, and relief efforts supporting families in need in our community and around the world.",
-  },
-];
+export { programs, type Program, type ProgramSection } from "./programs";
 
 export type EducationSection = {
   title: string;
@@ -255,9 +156,81 @@ export const educationClasses: EducationClass[] = [
   },
 ];
 
+// "Main Objectives", worded as on the old site's About page.
 export const objectives = [
-  "Advance the teachings of the Islamic faith and associated religious practices.",
-  "Establish and maintain a mosque with services aligned to Islamic doctrine.",
-  "Support missionary efforts promoting the Islamic faith.",
-  "Operate a religious school for children, youths, and adults.",
+  "To preach and advance the teachings of the Islamic faith and the religious tenets, doctrines, observances and culture associated with that faith.",
+  "To establish, maintain and support a house of worship (mosque) with services conducted in accordance with the tenets and doctrines of the Islamic faith.",
+  "To support and maintain missions and missionaries in order to propagate the Islamic faith.",
+  "To establish and maintain a religious school of instruction for children, youths and adults.",
+];
+
+// ---- Navigation -----------------------------------------------------------
+
+export type NavLink = { label: string; href: string };
+export type NavGroup = { label?: string; links: NavLink[] };
+// An item either links directly (href) or opens a sub-menu of groups.
+export type NavItem = { label: string; href?: string; groups?: NavGroup[] };
+
+const programCategories = ["Youth", "Community", "Outreach"] as const;
+
+export const mainNav: NavItem[] = [
+  { label: "Home", href: "/" },
+  {
+    label: "About Us",
+    groups: [
+      {
+        links: [
+          { label: "About NICE", href: "/about/" },
+          { label: "New Project", href: "/new-project/" },
+          { label: "Our Sponsors", href: "/our-sponsors/" },
+        ],
+      },
+    ],
+  },
+  {
+    label: "Education",
+    groups: [
+      {
+        links: educationClasses.map((c) => ({
+          label: c.title,
+          href: `/education/${c.slug}/`,
+        })),
+      },
+    ],
+  },
+  {
+    label: "Programs & Services",
+    groups: programCategories.map((category) => ({
+      label: category,
+      links: programs
+        .filter((p) => p.category === category)
+        .map((p) => ({ label: p.title, href: `/programs/${p.slug}/` })),
+    })),
+  },
+  { label: "Prayer Times", href: "/daily-prayer-time/" },
+  {
+    label: "Events & Media",
+    groups: [
+      {
+        links: [
+          { label: "Events Calendar", href: "/events-calendar/" },
+          { label: "Gallery", href: "/gallery/" },
+          { label: "Flyers", href: "/flyers/" },
+        ],
+      },
+    ],
+  },
+];
+
+export const footerNav: NavLink[] = [
+  { label: "About Us", href: "/about/" },
+  { label: "Education", href: "/education/" },
+  { label: "Programs & Services", href: "/programs-services/" },
+  { label: "Prayer Times", href: "/daily-prayer-time/" },
+  { label: "Events Calendar", href: "/events-calendar/" },
+  { label: "Gallery", href: "/gallery/" },
+  { label: "Flyers", href: "/flyers/" },
+  { label: "New Project", href: "/new-project/" },
+  { label: "Our Sponsors", href: "/our-sponsors/" },
+  { label: "Donate", href: "/donation/" },
 ];

@@ -1,6 +1,7 @@
 import { PageHero } from "@/components/PageHero";
 import { Section, SectionHeading } from "@/components/Section";
 import { site } from "@/lib/site";
+import { asset } from "@/lib/asset";
 import { IconArrowRight } from "@/components/icons";
 
 export const metadata = {
@@ -21,17 +22,47 @@ export default function OurSponsorsPage() {
         <SectionHeading
           eyebrow="With Gratitude"
           title="Thank you to our community partners"
-          description="Our sponsors help fund youth programs, education classes, and community outreach. Interested in becoming a sponsor? We'd love to hear from you."
+          description="We are grateful to the businesses who support NICE. Interested in advertising with us? We'd love to hear from you."
         />
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {Array.from({ length: 8 }).map((_, i) => (
-            <div
+          <a
+            data-reveal
+            href="https://halalmeals.ca"
+            target="_blank"
+            rel="noreferrer"
+            className="group overflow-hidden rounded-2xl border border-teal-900/10 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg sm:col-span-2"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={asset("/sponsors/halalmeals.jpg")}
+              alt="HalalMeals.ca — ready to eat iftars and dinners delivered. 20% off with promo code NICEMASJID"
+              width={1400}
+              height={788}
+              className="h-auto w-full"
+            />
+            <div className="p-5">
+              <p className="font-display text-lg font-bold text-teal-900">
+                HalalMeals.ca
+              </p>
+              <p className="mt-1 text-sm text-ink-500">
+                Ready-to-eat iftars &amp; dinners delivered &middot; 20% off
+                with promo code{" "}
+                <span className="font-semibold text-teal-800">NICEMASJID</span>
+              </p>
+            </div>
+          </a>
+          {Array.from({ length: 2 }).map((_, i) => (
+            <a
               key={i}
               data-reveal
-              className="flex aspect-video items-center justify-center rounded-2xl border border-dashed border-teal-900/20 bg-cream-100 text-sm font-medium text-ink-500"
+              href={`mailto:${site.email}?subject=${encodeURIComponent("Advertising with NICE")}`}
+              className="flex min-h-48 flex-col items-center justify-center rounded-2xl border border-dashed border-teal-900/25 bg-cream-100 p-6 text-center transition hover:border-gold-500"
             >
-              Sponsor Logo
-            </div>
+              <span className="font-display text-lg font-bold text-teal-900">
+                Your Advertisement Here
+              </span>
+              <span className="mt-1 text-sm text-ink-500">Contact us to advertise</span>
+            </a>
           ))}
         </div>
       </Section>

@@ -4,6 +4,8 @@ import { Section, SectionHeading } from "@/components/Section";
 import Image from "next/image";
 import { HeroPrayerTimes } from "@/components/HeroPrayerTimes";
 import { ScrollHighlight } from "@/components/ScrollHighlight";
+import { FlyerGallery } from "@/components/FlyerGallery";
+import { currentFlyers } from "@/lib/flyers";
 import { asset } from "@/lib/asset";
 import { ProgramCard } from "@/components/ProgramCard";
 import { programs, objectives, site } from "@/lib/site";
@@ -137,10 +139,30 @@ export default function Home() {
           </p>
           <ScrollHighlight
             className="mt-6 max-w-5xl font-display text-3xl font-bold leading-[1.25] text-teal-900 sm:text-5xl sm:leading-[1.2]"
-            text="We are building a centre of excellence in Brampton — a place where every family can pray, learn, grow, and serve together, and where no one in need is turned away."
+            text="NICE strives to develop a dynamic community where families are able to fulfill all of their divine and social needs with comfort and ease."
           />
         </Container>
       </section>
+
+      <Section className="pt-0 sm:pt-0">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <SectionHeading
+            eyebrow="Notice Board"
+            title="Current Flyers"
+            description="The latest announcements, events, and reminders from NICE. Click a flyer to view it full size."
+          />
+          <Link
+            href="/flyers/"
+            className="inline-flex items-center gap-2 font-semibold text-teal-800 hover:text-teal-900"
+          >
+            See previous flyers
+            <IconArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+        <div className="mt-10">
+          <FlyerGallery flyers={currentFlyers} label="Current flyers" layout="row" />
+        </div>
+      </Section>
 
       <Section className="pt-0 sm:pt-0">
         <SectionHeading

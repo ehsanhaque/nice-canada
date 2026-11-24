@@ -76,10 +76,8 @@ export default function EducationPage() {
               Ready to enroll your child?
             </h2>
             <p className="mt-4 text-cream-100/80">
-              Admission for our weekend Islamic Studies classes is open
-              throughout the year. Reach out to us directly or join our
-              WhatsApp community to receive registration details and class
-              schedules.
+              Reach out to us directly or join our WhatsApp community to
+              receive registration details and class schedules.
             </p>
           </div>
           <div className="flex flex-wrap gap-4 lg:justify-end">

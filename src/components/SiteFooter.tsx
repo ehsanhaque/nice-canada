@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Container } from "./Container";
 import { Logo } from "./Logo";
-import { mainNav, site } from "@/lib/site";
+import { footerNav, site } from "@/lib/site";
 import { IconFacebook, IconMail, IconPin, IconWhatsapp, IconYoutube } from "./icons";
 
 export function SiteFooter() {
@@ -27,7 +27,7 @@ export function SiteFooter() {
             Explore
           </h3>
           <ul className="mt-4 space-y-2.5 text-sm">
-            {mainNav.map((item) => (
+            {footerNav.map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className="text-cream-100/75 hover:text-gold-300">
                   {item.label}

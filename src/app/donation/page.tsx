@@ -2,6 +2,7 @@ import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
 import { PayPalDonateForm } from "@/components/DonateButton";
 import { site } from "@/lib/site";
+import { asset } from "@/lib/asset";
 import { IconArrowRight, IconHeart } from "@/components/icons";
 
 export const metadata = {
@@ -30,8 +31,7 @@ export default function DonationPage() {
             </h3>
             <p className="mt-2 flex-1 text-sm text-ink-500">
               Send your donation directly and securely via Interac
-              e-Transfer — no fees are deducted, so 100% of your donation
-              reaches the community.
+              e-Transfer — our preferred method of giving.
             </p>
             <div className="mt-5 rounded-xl bg-cream-100 px-4 py-3">
               <p className="text-xs font-semibold uppercase tracking-wide text-ink-500">
@@ -76,7 +76,7 @@ export default function DonationPage() {
               predictable monthly gift.
             </p>
             <a
-              href={site.padFormUrl}
+              href={asset(site.padFormUrl)}
               className="mt-5 inline-flex items-center gap-2 font-semibold text-teal-800 hover:text-teal-900"
             >
               Download PAD form
@@ -84,6 +84,10 @@ export default function DonationPage() {
             </a>
           </div>
         </div>
+        <p data-reveal className="mt-8 text-center text-sm text-ink-500">
+          Donation tax receipts are available on request &middot; Charitable
+          Registration # {site.charityRegistration}
+        </p>
       </Section>
 
       <Section className="bg-teal-900">
